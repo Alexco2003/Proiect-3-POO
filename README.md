@@ -2,4 +2,4 @@
 Programare Orientata Obiect
 
 Toate cerintele proiectului se gasesc in pdf.\
-Tema aleasa : 
+Tema aleasa : Catalog Online

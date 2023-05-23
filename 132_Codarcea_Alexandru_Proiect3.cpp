@@ -25,6 +25,8 @@
 
 using namespace std;
 
+int cnt255=0;
+
 void clearScreen()
 {
     system("CLS");
@@ -99,10 +101,11 @@ void writeReclamatie(const string& reclamatie)
     {
         logFile << reclamatie << endl<<endl;
         logFile.close();
+        cnt255++;
     }
     else
     {
-        cout << "Nu s-a putut deschide fisierul." << endl;
+        cout <<endl<< "A intervenit o eroare." << endl;
     }
 }
 
@@ -675,10 +678,11 @@ public:
         ofstream file(filename, ios::app); // Open the file in append mode to preserve existing content
         if (!file.is_open())
         {
-            cerr << "Error: Unable to open file." << endl;
+            cerr << endl<<"A intervenit o eroare." << endl;
             return;
         }
 
+        cnt255++;
         file << "+---------------------------------------------------+" << endl;
 
         // Check if gradeType is char (International design)
@@ -763,6 +767,7 @@ public:
 
 };
 
+int cnt256=0;
 vector <Persoana*> persoane;
 vector<CatalogOnline<int>*> cataloage1;
 vector<CatalogOnline<char>*> cataloage2;
@@ -783,10 +788,11 @@ void importStudents(const string& filename)
     ifstream file(filename);
     if (!file.is_open())
     {
-        cerr << "Error: Unable to open file." << endl;
+        cerr <<endl<< "A intervenit o eroare." << endl;
         return;
     }
 
+    cnt256++;
     string line;
     while (getline(file, line))
     {
@@ -822,10 +828,11 @@ void importStudentInternationals(const string& filename)
     ifstream file(filename);
     if (!file.is_open())
     {
-        cerr << "Error: Unable to open file." << endl;
+        cerr <<endl<< "A intervenit o eroare." << endl;
         return;
     }
 
+    cnt256++;
     string line;
     while (getline(file, line))
     {
@@ -1255,6 +1262,7 @@ public:
                         string reclamatie;
                         getline(cin, reclamatie);
 
+                        cnt255=0;
                         writeReclamatie(reclamatie);
 
                         for(int i=0; i<=3; i++)
@@ -1269,7 +1277,10 @@ public:
                         }
 
                         clearScreen();
-                        cout<<endl<<"EXPORT realizat cu succes."<<endl;
+                        if(cnt255!=0)
+                            cout<<endl<<"EXPORT realizat cu succes."<<endl;
+                        else
+                            cout<<endl<<"A intervenit o eroare." << endl;
                         pauza(3);
                         clearScreen();
                         break;
@@ -3381,12 +3392,15 @@ public:
                             cout<<"Albert, 1998, {English, History}"<<endl<<"Emma Watson, 2002, {Biology, Computer Science}"<<endl<<endl;
                             cout<<"Orice fisier formatat gresit va duce la coruptia datelor."<<endl<<endl;
 
+                            cnt256=0;
                             string fileName;
                             cout<<"Introduceti numele fisierului: ";
                             cin.ignore();
                             getline(cin, fileName);
                             importStudents(fileName);
-                            cout<<endl<<"IMPORT realizat cu succes.";
+
+                            if(cnt256!=0)
+                                cout<<endl<<"IMPORT realizat cu succes.";
                             pauza(3);
                             clearScreen();
                             break;
@@ -3401,12 +3415,15 @@ public:
                             cout<<"Orice fisier formatat gresit va duce la coruptia datelor."<<endl<<endl;
 
 
+                            cnt256=0;
                             string fileName;
                             cout<<"Introduceti numele fisierului: ";
                             cin.ignore();
                             getline(cin, fileName);
                             importStudentInternationals(fileName);
-                            cout<<endl<<"IMPORT realizat cu succes.";
+
+                            if(cnt256!=0)
+                                cout<<endl<<"IMPORT realizat cu succes.";
                             pauza(3);
                             clearScreen();
                             break;
@@ -3495,8 +3512,10 @@ public:
                             }
 
 
+                            cnt255=0;
                             cataloage1[Index]->exportToFile("catalog.txt");
-                            cout<<endl<<"EXPORT realizat cu succes."<<endl;
+                            if(cnt255!=0)
+                                cout<<endl<<"EXPORT realizat cu succes."<<endl;
                             pauza(3);
                             clearScreen();
                             break;
@@ -3584,8 +3603,10 @@ public:
                                 break;
                             }
 
+                            cnt255=0;
                             cataloage2[Index]->exportToFile("catalog.txt");
-                            cout<<endl<<"EXPORT realizat cu succes."<<endl;
+                            if(cnt255!=0)
+                                cout<<endl<<"EXPORT realizat cu succes."<<endl;
                             pauza(3);
                             clearScreen();
                             break;

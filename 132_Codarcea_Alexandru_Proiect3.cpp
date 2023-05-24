@@ -2250,7 +2250,7 @@ public:
                                             throw invalid_argument("Input invalid. Au fost gasite caractere suplimentare.");
                                         }
 
-                                        if (nota <1 && nota >10)
+                                        if (nota <1 || nota >10)
                                         {
                                             throw invalid_argument("Input invalid. Te rog introdu un numar de la 1 la 10.");
                                         }
@@ -2667,7 +2667,7 @@ public:
                                             throw invalid_argument("Input invalid. Au fost gasite caractere suplimentare.");
                                         }
 
-                                        if (nota <1 && nota >10)
+                                        if (nota <1 || nota >10)
                                         {
                                             throw invalid_argument("Input invalid. Te rog introdu un numar de la 1 la 10.");
                                         }
@@ -3902,7 +3902,7 @@ int main()
     }
     catch(...)
     {
-        cout<<"A intervenit o eroare. Va rugam reporniti aplicatia."<<endl;
+        cout<<endl<<"A intervenit o eroare. Va rugam reporniti aplicatia."<<endl;
     }
 
     return 0;

@@ -2105,7 +2105,7 @@ public:
                             }
 
 
-                            cout<<"Introduceti '1' pentru a selecta cataloagele sau '2' pentru a selecta cataloagele internationale. ";
+                            cout<<"Introduceti '1' pentru a selecta cataloagele sau '2' pentru a selecta cataloagele internationale: ";
                             int nr;
 
                             do
@@ -2522,7 +2522,7 @@ public:
                             }
 
 
-                            cout<<"Introduceti '1' pentru a selecta cataloagele sau '2' pentru a selecta cataloagele internationale. ";
+                            cout<<"Introduceti '1' pentru a selecta cataloagele sau '2' pentru a selecta cataloagele internationale: ";
                             int nr;
 
                             do
@@ -3908,4 +3908,3 @@ int main()
     return 0;
 
 }
-
